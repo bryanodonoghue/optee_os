@@ -7,7 +7,7 @@ mx6q-flavorlist = mx6qsabrelite mx6qsabresd
 mx6d-flavorlist =
 mx6dl-flavorlist = mx6dlsabresd
 mx6s-flavorlist =
-mx7-flavorlist = mx7dsabresd
+mx7d-flavorlist = mx7dsabresd
 
 ifneq (,$(filter $(PLATFORM_FLAVOR),$(mx6ul-flavorlist)))
 $(call force,CFG_MX6UL,y)
@@ -21,8 +21,8 @@ else ifneq (,$(filter $(PLATFORM_FLAVOR),$(mx6dl-flavorlist)))
 $(call force,CFG_MX6DL,y)
 else ifneq (,$(filter $(PLATFORM_FLAVOR),$(mx6s-flavorlist)))
 $(call force,CFG_MX6S,y)
-else ifneq (,$(filter $(PLATFORM_FLAVOR),$(mx7-flavorlist)))
-$(call force,CFG_MX7,y)
+else ifneq (,$(filter $(PLATFORM_FLAVOR),$(mx7d-flavorlist)))
+$(call force,CFG_MX7D,y)
 else
 $(error Unsupported PLATFORM_FLAVOR "$(PLATFORM_FLAVOR)")
 endif
@@ -71,7 +71,7 @@ CFG_BOOT_SECONDARY_REQUEST ?= y
 CFG_ENABLE_SCTLR_RR ?= y
 endif
 
-ifeq ($(filter y, $(CFG_MX7)), y)
+ifeq ($(filter y, $(CFG_MX7D)), y)
 include core/arch/arm/cpu/cortex-a7.mk
 
 $(call force,CFG_SECURE_TIME_SOURCE_REE,y)

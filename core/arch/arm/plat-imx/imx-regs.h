@@ -138,7 +138,7 @@
 #define DRAM0_BASE			0x10000000
 #endif
 
-#elif defined(CFG_MX7)
+#elif defined(CFG_MX7D)
 #define GIC_BASE		0x31000000
 #define GIC_SIZE		0x8000
 #define GICC_OFFSET		0x2000
