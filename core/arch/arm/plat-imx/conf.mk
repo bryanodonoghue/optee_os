@@ -71,7 +71,7 @@ CFG_BOOT_SECONDARY_REQUEST ?= y
 CFG_ENABLE_SCTLR_RR ?= y
 endif
 
-ifeq ($(filter y, $(CFG_MX7D)), y)
+ifeq ($(filter y, $(CFG_MX7D) $(CFG_MX7S)), y)
 include core/arch/arm/cpu/cortex-a7.mk
 
 $(call force,CFG_SECURE_TIME_SOURCE_REE,y)

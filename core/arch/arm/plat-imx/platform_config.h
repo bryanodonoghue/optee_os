@@ -35,7 +35,7 @@
 #define STACK_ALIGNMENT			64
 
 /* For i.MX7D/S platforms */
-#if defined(CFG_MX7D)
+#if defined(CFG_MX7D) || defined(CFG_MX7S)
 #include <config/config_imx7.h>
 
 /* For i.MX 6UltraLite and 6ULL EVK board */

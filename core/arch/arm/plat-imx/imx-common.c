@@ -44,7 +44,7 @@ static uint32_t imx_digproc(void)
 		anatop_addr = core_mmu_get_va(ANATOP_BASE, MEM_AREA_IO_SEC);
 
 		/* TODO: Handle SL here */
-#ifdef CFG_MX7D
+#if defined(CFG_MX7D) || defined(CFG_MX7S)
 		reg = read32(anatop_addr + OFFSET_DIGPROG_IMX7D);
 #else
 		reg = read32(anatop_addr + OFFSET_DIGPROG);
