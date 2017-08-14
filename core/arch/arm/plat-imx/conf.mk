@@ -8,6 +8,7 @@ mx6d-flavorlist =
 mx6dl-flavorlist = mx6dlsabresd
 mx6s-flavorlist =
 mx7d-flavorlist = mx7dsabresd
+mx7s-flavorlist = mx7swarp7
 
 ifneq (,$(filter $(PLATFORM_FLAVOR),$(mx6ul-flavorlist)))
 $(call force,CFG_MX6UL,y)
@@ -23,6 +24,8 @@ else ifneq (,$(filter $(PLATFORM_FLAVOR),$(mx6s-flavorlist)))
 $(call force,CFG_MX6S,y)
 else ifneq (,$(filter $(PLATFORM_FLAVOR),$(mx7d-flavorlist)))
 $(call force,CFG_MX7D,y)
+else ifneq (,$(filter $(PLATFORM_FLAVOR),$(mx7s-flavorlist)))
+$(call force,CFG_MX7S,y)
 else
 $(error Unsupported PLATFORM_FLAVOR "$(PLATFORM_FLAVOR)")
 endif
@@ -33,6 +36,14 @@ CFG_DT ?= y
 CFG_NS_ENTRY_ADDR ?= 0x80800000
 CFG_PSCI_ARM32 ?= y
 CFG_TEE_CORE_NB_CORE ?= 2
+endif
+
+ifneq (,$(filter $(PLATFORM_FLAVOR),mx7swarp7))
+CFG_DDR_SIZE ?= 0x20000000
+CFG_DT ?= y
+CFG_NS_ENTRY_ADDR ?= 0x80800000
+CFG_PSCI_ARM32 ?= y
+CFG_TEE_CORE_NB_CORE ?= 1
 endif
 
 # Common i.MX6 config
