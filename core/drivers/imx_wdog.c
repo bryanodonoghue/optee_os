@@ -84,7 +84,7 @@ static TEE_Result imx_wdog_init(void)
 	int st;
 	uint32_t i;
 
-#ifdef CFG_MX7
+#if defined(CFG_MX7S) || defined(CFG_MX7D)
 	static const char * const wdog_path[] = {
 		"/soc/aips-bus@30000000/wdog@30280000",
 		"/soc/aips-bus@30000000/wdog@30290000",
