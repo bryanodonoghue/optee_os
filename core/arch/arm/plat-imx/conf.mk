@@ -4,6 +4,7 @@ PLATFORM_FLAVOR ?= mx6ulevk
 mx6ul-flavorlist = \
 	mx6ulevk \
 	mx6ulccimx6ulsbcpro \
+	mx6ulpico_mbl \
 
 mx6ull-flavorlist = \
 	mx6ullevk \
@@ -170,6 +171,15 @@ ifneq (,$(filter $(PLATFORM_FLAVOR),mx6ulccimx6ulsbcpro))
 CFG_DDR_SIZE ?= 0x10000000
 CFG_NS_ENTRY_ADDR ?= 0x80800000
 CFG_UART_BASE ?= UART5_BASE
+endif
+
+ifneq (,$(filter $(PLATFORM_FLAVOR),mx6ulpico_mbl))
+CFG_DDR_SIZE ?= 0x20000000
+CFG_NS_ENTRY_ADDR ?= 0x87800000
+CFG_DT_ADDR ?= 0x83100000
+CFG_EXTERNAL_DTB_OVERLAY = y
+CFG_IMX_WDOG_EXT_RESET = y
+CFG_UART_BASE ?= UART6_BASE
 endif
 
 ifneq (,$(filter $(PLATFORM_FLAVOR),imx8mqevk))

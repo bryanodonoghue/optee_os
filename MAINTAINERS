@@ -148,6 +148,12 @@ R:	Etienne Carriere <etienne.carriere@st.com>
 S:	Maintained
 F:	core/arch/arm/plat-stm32mp1/
 
+Technexion PICO-IMX6UL
+R:	Peng Fan <peng.fan@nxp.com> [@MrVan]
+R:	Bryan O'Donoghue <bryan.odonoghue@linaro.org> [@bryanodonoghue]
+S:	Maintained
+F:	core/arch/arm/plat-imx/conf.mk
+
 Texas Instruments AM43xx, AM57xx, DRA7xx, AM65x, J721E
 R:	Andrew F. Davis <afd@ti.com>
 S:	Maintained
