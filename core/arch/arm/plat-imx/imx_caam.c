@@ -15,6 +15,7 @@ void init_caam(void)
 {
 	struct imx_caam_ctrl *caam = (struct imx_caam_ctrl *)(vaddr_t)CAAM_BASE;
 	uint32_t reg;
+	vaddr_t addr;
 	int i;
 
 	/*
@@ -32,9 +33,11 @@ void init_caam(void)
 	 * This code below simply sets a default for the case where no
 	 * runtime OP-TEE CAAM code will be run
 	 */
+
 	for (i = 0; i < CAAM_NUM_JOB_RINGS; i++) {
-		reg = io_read32((vaddr_t)&caam->jr[i].jrmidr_ms);
+		addr = core_mmu_get_va(&caam->jr[i].jrmidr_ms, MEM_AREA_IO_SEC);
+		reg = io_read32(addr);
 		reg |= JROWN_NS | JROWN_MID;
-		io_write32((vaddr_t)&caam->jr[i].jrmidr_ms, reg);
+		io_write32(addr, reg);
 	}
 }
